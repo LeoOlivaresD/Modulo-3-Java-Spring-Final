@@ -11,13 +11,13 @@ public class Pruebas {
         //Cliente cliente = new Cliente("Leonado","Olivares",18842139,"07/08/1994","930985129","Plan Vital","1","V Alemana",28,"Goepfert");
         //Cliente cliente1 = new Cliente("Felipe","Pacheco",20321123,"14/12/1994","+56912121212","Modelo","2","Mapipu",29,"Santiago");
         //Asesoria cliente = new Cliente();
-        for (int i = 0; i <2 ; i++) {
+        /*for (int i = 0; i <2 ; i++) {
             Cliente cliente = new Cliente();
             cliente.setNombre(cliente.getNombre());
             cliente.setApellido(cliente.getApellido());
             cliente.setRut(cliente.getRut());
             contenedor.almacerCliente(cliente);
-        }
+        }*/
         contenedor.listarUsuarios();
         System.out.println("Eliminarl agun usuario");
         contenedor.eliminarUsuario(18842139);

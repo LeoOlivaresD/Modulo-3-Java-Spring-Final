@@ -7,15 +7,15 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) throws ParseException {
         String respuestas;
-        int contador = 0, menuOpciones = 0, perfil = 0;
+        int ingresos = 0, menuOpciones = 0, perfil = 0;
         boolean repetirOperacion = false;
         Scanner in = new Scanner(System.in);
         //Creaccion de Instancias
-        Usuario usuario = new Usuario();
-        Cliente cliente = new Cliente();
-        Profesional profesional = new Profesional();
-        Administrativo administrativo = new Administrativo();
-        Capacitacion capacitacion = new Capacitacion();
+        //Usuario usuario = new Usuario();
+        //Cliente cliente = new Cliente();
+        //Profesional profesional = new Profesional();
+        //Administrativo administrativo = new Administrativo();
+        //Capacitacion capacitacion = new Capacitacion();
         Contenedor contenedor = new Contenedor();
         do {
             System.out.println("-----------------------------------------------------------------------------");
@@ -36,67 +36,108 @@ public class Principal {
                 System.out.println("Error, debe ingresar una opcion valida correspondiente al numero\n" +
                         "intente nuevamente");
             }
-            switch (menuOpciones){
+            switch (menuOpciones) {
                 case 1:
                     do {
-                        cliente.setNombre(cliente.getNombre());
-                        cliente.setApellido(cliente.getApellido());
-                        cliente.setRut(cliente.getRut());
-                        cliente.setFechaNacimiento(cliente.getFechaNacimiento());
-                        cliente.setTelefono(cliente.getTelefono());
-                        cliente.setAfp(cliente.getAfp());
-                        cliente.setSistemaDeSalud(cliente.getSistemaDeSalud());
-                        cliente.setDireccion(cliente.getDireccion());
-                        cliente.setComuna(cliente.getComuna());
-                        cliente.setEdad(cliente.getEdad());
-                        in.nextLine();
-
-                        for (contador = 0; contador < contenedor.listaUsuario.size() ; contador++) {
+                        System.out.println("Cuantos clientes desea ingresar");
+                        ingresos = in.nextInt();
+                        for (int i = 0; i < ingresos; i++) {
+                            Cliente cliente = new Cliente();
+                            cliente.setNombre(cliente.getNombre());
+                            cliente.setApellido(cliente.getApellido());
+                            cliente.setRut(cliente.getRut());
+                            cliente.setFechaNacimiento(cliente.getFechaNacimiento());
+                            cliente.setTelefono(cliente.getTelefono());
+                            cliente.setAfp(cliente.getAfp());
+                            cliente.setSistemaDeSalud(cliente.getSistemaDeSalud());
+                            cliente.setDireccion(cliente.getDireccion());
+                            cliente.setComuna(cliente.getComuna());
+                            cliente.setEdad(cliente.getEdad());
+                            in.nextLine();
                             contenedor.almacerCliente(cliente);
+                            System.out.println("Datos de usuario registrados: ");
                         }
-                        System.out.println("Datos de usuario registrados: ");
-                        cliente.analizarUsuario();
-                        contenedor.listarUsuarios();
-                        System.out.println("¿Desea agregar mas clientes, responda si / no?");
-                         respuestas= in.nextLine();
-                         if (respuestas.equals("si")){
-                             contador = contador + 1;
-                         }
-                        if( respuestas.equals("si")){
+
+                        System.out.println("¿Desea volver al menu principal?");
+                        respuestas = in.nextLine();
+                        if (respuestas.equals("si")) {
+                            repetirOperacion = false;
+                        } else {
                             repetirOperacion = true;
-                        }else {
-                            repetirOperacion=false;
                         }
-                    }while (repetirOperacion == true);
+                    } while (repetirOperacion == true || ingresos == 0);
                     break;
                 case 2:
-                    profesional.setNombre(profesional.getNombre());
-                    profesional.setApellido(profesional.getApellido());
-                    profesional.setRut(profesional.getRut());
-                    profesional.setFechaNacimiento(profesional.getFechaNacimiento());
-                    profesional.setTitulo(profesional.getTitulo());
-                    profesional.setFechaIngreso(profesional.getFechaIngreso());
+                    do {
+                        System.out.println("¿Cuantos profesionales desea ingresar?");
+                        ingresos = in.nextInt();
+                        for (int i = 0; i < ingresos; i++) {
+                            Profesional profesional= new Profesional();
+                            profesional.setNombre(profesional.getNombre());
+                            profesional.setApellido(profesional.getApellido());
+                            profesional.setRut(profesional.getRut());
+                            profesional.setFechaNacimiento(profesional.getFechaNacimiento());
+                            profesional.setTitulo(profesional.getTitulo());
+                            profesional.setFechaIngreso(profesional.getFechaIngreso());
+                            contenedor.almacenarProfesional(profesional);
+                            System.out.println("Datos de usuario registrados: ");
+                        }
+                        System.out.println("¿Desea volver al menu principal?");
+                        respuestas = in.nextLine();
+                        if (respuestas.equals("si")) {
+                            repetirOperacion = false;
+                        } else {
+                            repetirOperacion = true;
+                        }
+                    } while (repetirOperacion == true || ingresos == 0);
                     break;
                 case 3:
-                    administrativo.setNombre(administrativo.getNombre());
-                    administrativo.setApellido(administrativo.getApellido());
-                    administrativo.setRut(administrativo.getRut());
-                    administrativo.setFechaNacimiento(administrativo.getFechaNacimiento());
-                    administrativo.setArea(administrativo.getArea());
-                    administrativo.setExperienciaPrevia(administrativo.getExperienciaPrevia());
+                    do {
+                        System.out.println("¿Cuantos administrativos desea ingresar?");
+                        ingresos = in.nextInt();
+                        for (int i = 0; i < ingresos; i++) {
+                            Administrativo administrativo = new Administrativo();
+                            administrativo.setNombre(administrativo.getNombre());
+                            administrativo.setApellido(administrativo.getApellido());
+                            administrativo.setRut(administrativo.getRut());
+                            administrativo.setFechaNacimiento(administrativo.getFechaNacimiento());
+                            administrativo.setArea(administrativo.getArea());
+                            administrativo.setExperienciaPrevia(administrativo.getExperienciaPrevia());
+                            contenedor.almacenarAdministrativo(administrativo);
+                            System.out.println("Datos de usuario registrados: ");
+                        }
+                        System.out.println("¿Desea volver al menu principal?");
+                        respuestas = in.nextLine();
+                        if (respuestas.equals("si")) {
+                            repetirOperacion = false;
+                        } else {
+                            repetirOperacion = true;
+                        }
+                    }while (repetirOperacion == true || ingresos == 0);
                     break;
                 case 4:
-                    capacitacion.setId(capacitacion.getId());
-                    capacitacion.setRutCliente(capacitacion.getRutCliente());
-                    capacitacion.setDia(capacitacion.getDia());
-                    capacitacion.setHora(capacitacion.getHora());
-                    capacitacion.setLugar(capacitacion.getLugar());
-                    capacitacion.setDuracion(capacitacion.getDuracion());
-                    capacitacion.setCantidadDeAsistentes(capacitacion.getCantidadDeAsistentes());
-
+                    do {
+                        for (int i = 1; i < ingresos; i++) {
+                            Capacitacion capacitacion= new Capacitacion();
+                            capacitacion.setId(capacitacion.getId());
+                            capacitacion.setRutCliente(capacitacion.getRutCliente());
+                            capacitacion.setDia(capacitacion.getDia());
+                            capacitacion.setHora(capacitacion.getHora());
+                            capacitacion.setLugar(capacitacion.getLugar());
+                            capacitacion.setDuracion(capacitacion.getDuracion());
+                            capacitacion.setCantidadDeAsistentes(capacitacion.getCantidadDeAsistentes());
+                        }
+                        System.out.println("¿Desea volver al menu principal?");
+                        respuestas = in.nextLine();
+                        if (respuestas.equals("si")) {
+                            repetirOperacion = false;
+                        } else {
+                            repetirOperacion = true;
+                        }
+                    }while (repetirOperacion == true || ingresos == 0);
                     break;
                 case 5:
-                    contenedor.eliminarUsuario(cliente.getRut());
+                    contenedor.eliminarUsuario(18842139);
                     break;
                 case 6:
                     contenedor.listarUsuarios();
