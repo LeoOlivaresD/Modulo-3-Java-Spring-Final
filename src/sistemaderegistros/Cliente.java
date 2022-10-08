@@ -116,10 +116,15 @@ public class Cliente extends Usuario {
                 ", afp='" + afp + '\'' +
                 ", sistemaDeSalud='" + sistemaDeSalud + '\'' +
                 ", comuna='" + comuna + '\'' +
-                ", edad='" + edad + '\'' +
+                ", edad=" + edad +
                 ", direccion='" + direccion + '\'' +
-                '}';
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", rut=" + rut +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                "} " + super.toString();
     }
+
     //Creacion metodo nombreCompleto
 
     public String nombreCompleto(){

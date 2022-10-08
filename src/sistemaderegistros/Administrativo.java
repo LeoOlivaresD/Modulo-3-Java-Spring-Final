@@ -22,6 +22,10 @@ public class Administrativo extends Usuario {
     }
 
     public void setArea(String area) {
+        do {
+            System.out.println("Indique su Area");
+            area = in.nextLine();
+        }while (area.length() < 5 || area.length() > 20);
         this.area = area;
     }
 
@@ -30,7 +34,11 @@ public class Administrativo extends Usuario {
     }
 
     public void setExperienciaPrevia(String experienciaPrevia) {
-        this.experienciaPrevia = experienciaPrevia;
+        do {
+            System.out.println("Indique su experiencia previa");
+            experienciaPrevia = in.nextLine();
+            this.experienciaPrevia = experienciaPrevia;
+        }while (experienciaPrevia.length() >100);
     }
 
     @Override
@@ -38,7 +46,11 @@ public class Administrativo extends Usuario {
         return "Administrativo{" +
                 "area='" + area + '\'' +
                 ", experienciaPrevia='" + experienciaPrevia + '\'' +
-                '}';
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", rut=" + rut +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                "} " + super.toString();
     }
 
     @Override

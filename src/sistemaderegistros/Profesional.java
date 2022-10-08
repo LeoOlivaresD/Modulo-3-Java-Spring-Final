@@ -19,6 +19,10 @@ public class Profesional extends Usuario{
     }
 
     public void setTitulo(String titulo) {
+        do {
+            System.out.println("Ingrese su titulo");
+            titulo = in.nextLine();
+        }while (titulo.length() < 10 || titulo.length() > 50);
         this.titulo = titulo;
     }
 
@@ -27,6 +31,10 @@ public class Profesional extends Usuario{
     }
 
     public void setFechaIngreso(String fechaIngreso) {
+        do {
+            System.out.println("Ingrese fecha de ingreso");
+            fechaIngreso = in.nextLine();
+        }while (fechaIngreso.isEmpty() || fechaIngreso.isBlank());
         this.fechaIngreso = fechaIngreso;
     }
 
@@ -35,7 +43,11 @@ public class Profesional extends Usuario{
         return "Profesional{" +
                 "titulo='" + titulo + '\'' +
                 ", fechaIngreso='" + fechaIngreso + '\'' +
-                '}';
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", rut=" + rut +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                "} " + super.toString();
     }
 
     @Override

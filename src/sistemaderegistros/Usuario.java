@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class Usuario implements Asesoria {
     //Declaracion de atributos
-    private String nombre;
-    private String apellido;
-    private Integer rut;
+    protected String nombre;
+    protected String apellido;
+    protected Integer rut;
 
-    private String fechaNacimiento;
+    protected String fechaNacimiento;
 
     Scanner in = new Scanner(System.in);
 

@@ -8,6 +8,10 @@ public class Pruebas {
         Scanner in = new Scanner(System.in);
         //Creaccion de Instancias
         Contenedor contenedor= new Contenedor();
+        Capacitacion capacitacion = new Capacitacion(1,"miercoles","22","valparaiso",1,"1 hora",2);
+        contenedor.almacenarCapacitacion(capacitacion);
+
+
         //Cliente cliente = new Cliente("Leonado","Olivares",18842139,"07/08/1994","930985129","Plan Vital","1","V Alemana",28,"Goepfert");
         //Cliente cliente1 = new Cliente("Felipe","Pacheco",20321123,"14/12/1994","+56912121212","Modelo","2","Mapipu",29,"Santiago");
         //Asesoria cliente = new Cliente();
@@ -18,7 +22,7 @@ public class Pruebas {
             cliente.setRut(cliente.getRut());
             contenedor.almacerCliente(cliente);
         }*/
-        contenedor.listarUsuarios();
+        /*contenedor.listarUsuarios();
         System.out.println("Eliminarl agun usuario");
         contenedor.eliminarUsuario(18842139);
         System.out.println("Se deberia eliminar Leo");
@@ -26,7 +30,7 @@ public class Pruebas {
         contenedor.listarUsuarios();
         Profesional profesional = new Profesional();
         Administrativo administrativo = new Administrativo();
-        Capacitacion capacitacion = new Capacitacion();
+        Capacitacion capacitacion = new Capacitacion();*/
 
         /*System.out.println("-----------------------------------------------------------");
         System.out.println("|Hola bienvenido al sistema de registros de capacitaciones|");

@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Evento {
     Scanner in = new Scanner(System.in);
-    private int rutCliente;
-    private String dia;
-    private String hora;
-    private String lugar;
+    protected int rutCliente;
+    protected String dia;
+    protected String hora;
+    protected String lugar;
 
     public Evento() {
     }
@@ -38,11 +38,12 @@ public class Evento {
 
     public void setDia(String dia) {
         boolean validacion = false;
+        String dias;
         do {
             String[] diasSemana = new String[]{"lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"};
             System.out.println("Ingrese un dia para la capacitacion");
-            dia = in.nextLine();
-            String diaAcordado = dia.toLowerCase();
+            dias = in.nextLine();
+            String diaAcordado = dias.toLowerCase();
 
             for (int i = 0; i < diasSemana.length; i++) {
                 if (diasSemana[i].equals(diaAcordado)) {
@@ -108,7 +109,7 @@ public class Evento {
     @Override
     public String toString() {
         return "Evento{" +
-                "rutCliente=" + rutCliente +
+                ", rutCliente=" + rutCliente +
                 ", dia='" + dia + '\'' +
                 ", hora='" + hora + '\'' +
                 ", lugar='" + lugar + '\'' +

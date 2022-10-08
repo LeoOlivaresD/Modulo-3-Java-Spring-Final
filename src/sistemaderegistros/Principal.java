@@ -7,16 +7,12 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) throws ParseException {
         String respuestas;
-        int ingresos = 0, menuOpciones = 0, perfil = 0;
+        int ingresos = 0, menuOpciones = 0;
         boolean repetirOperacion = false;
         Scanner in = new Scanner(System.in);
         //Creaccion de Instancias
-        //Usuario usuario = new Usuario();
-        //Cliente cliente = new Cliente();
-        //Profesional profesional = new Profesional();
-        //Administrativo administrativo = new Administrativo();
-        //Capacitacion capacitacion = new Capacitacion();
         Contenedor contenedor = new Contenedor();
+        //Capacitacion capacitacion = new Capacitacion();
         do {
             System.out.println("-----------------------------------------------------------------------------");
             System.out.println("| Bienvenido al sistema de registros de capacitaciones                      |\n" +
@@ -57,15 +53,10 @@ public class Principal {
                             contenedor.almacerCliente(cliente);
                             System.out.println("Datos de usuario registrados: ");
                         }
+                        System.out.println("Volviendo al menu principal..");
+                        repetirOperacion=false;
 
-                        System.out.println("¿Desea volver al menu principal?");
-                        respuestas = in.nextLine();
-                        if (respuestas.equals("si")) {
-                            repetirOperacion = false;
-                        } else {
-                            repetirOperacion = true;
-                        }
-                    } while (repetirOperacion == true || ingresos == 0);
+                    } while (repetirOperacion == true);
                     break;
                 case 2:
                     do {
@@ -82,14 +73,10 @@ public class Principal {
                             contenedor.almacenarProfesional(profesional);
                             System.out.println("Datos de usuario registrados: ");
                         }
-                        System.out.println("¿Desea volver al menu principal?");
-                        respuestas = in.nextLine();
-                        if (respuestas.equals("si")) {
-                            repetirOperacion = false;
-                        } else {
-                            repetirOperacion = true;
-                        }
-                    } while (repetirOperacion == true || ingresos == 0);
+                        System.out.println("Volviendo al menu principal..");
+                        repetirOperacion=false;
+
+                    }while (repetirOperacion == true);
                     break;
                 case 3:
                     do {
@@ -106,18 +93,15 @@ public class Principal {
                             contenedor.almacenarAdministrativo(administrativo);
                             System.out.println("Datos de usuario registrados: ");
                         }
-                        System.out.println("¿Desea volver al menu principal?");
-                        respuestas = in.nextLine();
-                        if (respuestas.equals("si")) {
-                            repetirOperacion = false;
-                        } else {
-                            repetirOperacion = true;
-                        }
-                    }while (repetirOperacion == true || ingresos == 0);
+                        System.out.println("Volviendo al menu principal..");
+                        repetirOperacion=false;
+                    }while (repetirOperacion == true );
                     break;
                 case 4:
                     do {
-                        for (int i = 1; i < ingresos; i++) {
+                        System.out.println("Ingrese el numero de ingresos para capacitacion");
+                        ingresos= in.nextInt();
+                        for (int i = 0; i < ingresos; i++) {
                             Capacitacion capacitacion= new Capacitacion();
                             capacitacion.setId(capacitacion.getId());
                             capacitacion.setRutCliente(capacitacion.getRutCliente());
@@ -126,25 +110,24 @@ public class Principal {
                             capacitacion.setLugar(capacitacion.getLugar());
                             capacitacion.setDuracion(capacitacion.getDuracion());
                             capacitacion.setCantidadDeAsistentes(capacitacion.getCantidadDeAsistentes());
+                            contenedor.almacenarCapacitacion(capacitacion);
+                            System.out.println("Datos de capacitacion registrados: ");
                         }
-                        System.out.println("¿Desea volver al menu principal?");
-                        respuestas = in.nextLine();
-                        if (respuestas.equals("si")) {
-                            repetirOperacion = false;
-                        } else {
-                            repetirOperacion = true;
-                        }
-                    }while (repetirOperacion == true || ingresos == 0);
+                        System.out.println("Volviendo al menu principal..");
+                        repetirOperacion=false;
+                    }while (repetirOperacion == true );
                     break;
                 case 5:
-                    contenedor.eliminarUsuario(18842139);
+                    contenedor.eliminarUsuario(0);
                     break;
                 case 6:
                     contenedor.listarUsuarios();
                     break;
                 case 7:
+                    contenedor.listarPorTipo();
                     break;
                 case 8:
+                    contenedor.listarCapacitaciones();
                     break;
                 case 9:
                     System.out.println("-------------------------------------------");
