@@ -74,7 +74,7 @@ public class Contenedor {
         listaUsuario.removeAll(listaEncontrado);
     }
 
-
+    //Listar todos los usuarios
     public void listarUsuarios() {
         System.out.println("Usuarios Registrados en el sistema");
         for (int i = 0; i < listaUsuario.size(); i++) {
@@ -83,37 +83,25 @@ public class Contenedor {
         }
     }
 
-    //metodo listarUsuarioTipo
-    /*public void listarUsusarioTipo() {*/
+    //metodo mostrar usuariosTipo
     public void listarPorTipo() {
-        String perfil;
         System.out.println("Indique el tipo a listar: \n" +
                 "- Cliente \n" +
                 "- Administrativo \n" +
                 "- Profesional");
-        perfil = in.nextLine();
-        if (perfil.equalsIgnoreCase("cliente")) {
-            for (int i = 0; i < listaUsuario.size(); i++) {
-                if (listaUsuario.get(i).toString().contains("Telefono")) {
-                    System.out.println(listaUsuario.get(i).toString());
-                    System.out.println("-----------------------------");
-                }
+        String tipo = in.nextLine();
+
+        listaUsuario.forEach(usuario -> {
+            if (usuario instanceof Cliente && tipo.equalsIgnoreCase("cliente")) {
+                System.out.println(usuario.toString());
             }
-        } else if (perfil.equalsIgnoreCase("administrativo")) {
-            for (int i = 0; i < listaUsuario.size(); i++) {
-                if (listaUsuario.get(i).toString().contains("area")) {
-                    System.out.println(listaUsuario.get(i).toString());
-                    System.out.println("-----------------------------");
-                }
+            if (usuario instanceof Administrativo && tipo.equalsIgnoreCase("administrativo")) {
+                System.out.println(usuario.toString());
             }
-        } else if (perfil.equalsIgnoreCase("profesional")) {
-            for (Asesoria asesoria : listaUsuario) {
-                if (asesoria.toString().contains("titulo")) {
-                    System.out.println(listaUsuario.toString());
-                    System.out.println("----------------------------");
-                }
+            if (usuario instanceof Profesional && tipo.equalsIgnoreCase("profesional")) {
+                System.out.println(usuario.toString());
             }
-        }
+        });
     }
 
     //metodo listarCapacitaciones

@@ -12,6 +12,7 @@ public class Capacitacion extends Evento {
     //Se genera constructor sin parametro
     public Capacitacion() {
     }
+
     //Se genera constructor con parametros
     public Capacitacion(int rutCliente, String dia, String hora, String lugar, int id, String duracion, int cantidadDeAsistentes) {
         super(rutCliente, dia, hora, lugar);
@@ -20,6 +21,7 @@ public class Capacitacion extends Evento {
         this.cantidadDeAsistentes = cantidadDeAsistentes;
     }
 
+    //Getters and setters
     public int getId() {
         return id;
     }
@@ -61,21 +63,18 @@ public class Capacitacion extends Evento {
         this.cantidadDeAsistentes = cantidadDeAsistentes;
     }
 
+    //to Strings
     @Override
     public String toString() {
         return "Capacitacion{" +
                 "id=" + id +
                 ", duracion='" + duracion + '\'' +
                 ", cantidadDeAsistentes=" + cantidadDeAsistentes +
-                ", rutCliente=" + rutCliente +
-                ", dia='" + dia + '\'' +
-                ", hora='" + hora + '\'' +
-                ", lugar='" + lugar + '\'' +
                 "} " + super.toString();
     }
 
     //Creacion de metodo mostrarDetalle()
-    public String mostrarDetalle(){
+    public String mostrarDetalle() {
         String detalle = "La capacitacion sera en: " + getLugar() + " a las " + getHora() + " del dia " + getDia() + " y durara " + duracion;
         return detalle;
     }

@@ -22,7 +22,7 @@ public class Profesional extends Usuario{
         do {
             System.out.println("Ingrese su titulo");
             titulo = in.nextLine();
-        }while (titulo.length() < 10 || titulo.length() > 50);
+        }while (titulo.length() < 5 || titulo.length() > 50);
         this.titulo = titulo;
     }
 
@@ -40,14 +40,11 @@ public class Profesional extends Usuario{
 
     @Override
     public String toString() {
-        return "Profesional{" +
+        return super.toString() +
+                "Profesional{" +
                 "titulo='" + titulo + '\'' +
                 ", fechaIngreso='" + fechaIngreso + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", rut=" + rut +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                "} " + super.toString();
+                "} ";
     }
 
     @Override

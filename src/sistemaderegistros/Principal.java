@@ -49,11 +49,11 @@ public class Principal {
                             cliente.setDireccion(cliente.getDireccion());
                             cliente.setComuna(cliente.getComuna());
                             cliente.setEdad(cliente.getEdad());
-                            in.nextLine();
                             contenedor.almacerCliente(cliente);
                             System.out.println("Datos de usuario registrados: ");
                         }
-                        System.out.println("Volviendo al menu principal..");
+                        System.out.println("Volviendo al menu principal porfavor presione alguna tecla para continuar..");
+                        respuestas = in.nextLine();
                         repetirOperacion=false;
 
                     } while (repetirOperacion == true);
@@ -73,9 +73,9 @@ public class Principal {
                             contenedor.almacenarProfesional(profesional);
                             System.out.println("Datos de usuario registrados: ");
                         }
-                        System.out.println("Volviendo al menu principal..");
+                        System.out.println("Volviendo al menu principal porfavor presione alguna tecla para continuar..");
+                        respuestas = in.nextLine();
                         repetirOperacion=false;
-
                     }while (repetirOperacion == true);
                     break;
                 case 3:
@@ -113,21 +113,29 @@ public class Principal {
                             contenedor.almacenarCapacitacion(capacitacion);
                             System.out.println("Datos de capacitacion registrados: ");
                         }
-                        System.out.println("Volviendo al menu principal..");
+                        System.out.println("Volviendo al menu principal porfavor..");
                         repetirOperacion=false;
                     }while (repetirOperacion == true );
                     break;
                 case 5:
-                    contenedor.eliminarUsuario(0);
+                        contenedor.eliminarUsuario(0);
+                        System.out.println("Usuario eliminado, presione alguna tecla para volver al menu principal");
+                        respuestas = in.nextLine();
                     break;
                 case 6:
                     contenedor.listarUsuarios();
+                    System.out.println("Presione alguna tecla para volver al mennu principal");
+                    respuestas = in.nextLine();
                     break;
                 case 7:
                     contenedor.listarPorTipo();
+                    System.out.println("Presione alguna tecla para volver al mennu principal");
+                    respuestas = in.nextLine();
                     break;
                 case 8:
                     contenedor.listarCapacitaciones();
+                    System.out.println("Presione alguna tecla para volver al mennu principal");
+                    respuestas = in.nextLine();
                     break;
                 case 9:
                     System.out.println("-------------------------------------------");

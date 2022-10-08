@@ -11,18 +11,15 @@ public class Evento {
 
     public Evento() {
     }
-
     public Evento(int rutCliente, String dia, String hora, String lugar) {
         this.rutCliente = rutCliente;
         this.dia = dia;
         this.hora = hora;
         this.lugar = lugar;
     }
-
     public int getRutCliente() {
         return rutCliente;
     }
-
     public void setRutCliente(int rutCliente) {
         do {
             System.out.println("Ingrese el rut del cliente sin puntos ni digito verificador");
@@ -31,33 +28,18 @@ public class Evento {
         this.rutCliente = rutCliente;
         in.nextLine();
     }
-
     public String getDia() {
         return dia;
     }
-
     public void setDia(String dia) {
-        boolean validacion = false;
-        String dias;
-        do {
-            String[] diasSemana = new String[]{"lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"};
-            System.out.println("Ingrese un dia para la capacitacion");
-            dias = in.nextLine();
-            String diaAcordado = dias.toLowerCase();
-
-            for (int i = 0; i < diasSemana.length; i++) {
-                if (diasSemana[i].equals(diaAcordado)) {
-                    validacion = true;
-                }
-            }
-        } while (validacion == false);
+        System.out.println("Ingrese el día de la semana");
+        dia = in.nextLine();
         this.dia = dia;
+        if (dia.equalsIgnoreCase("Lunes") || dia.equalsIgnoreCase("Martes") || dia.equalsIgnoreCase("Miércoles") || dia.equalsIgnoreCase("Jueves") || dia.equalsIgnoreCase("Viernes")) ;
     }
-
     public String getHora() {
         return hora;
     }
-
     public void setHora(String hora) {
         boolean time = false;
         int horas = 0;
@@ -85,27 +67,20 @@ public class Evento {
                 time = true;
             }
         } while (time == false);
-
-        String horaString = String.valueOf(horas);  //conversion de variable int minutos y horas a string
-        String minutosString = String.valueOf(minutos);
-        hora = horas + ":" + minutos;
-        //System.out.println(hora);
+        hora = horas + ":" + minutos + " horas";
         this.hora = hora;
         in.nextLine();
     }
-
     public String getLugar() {
         return lugar;
     }
-
     public void setLugar(String lugar) {
         do {
             System.out.println("Ingrese lugar de capacitacion");
             lugar = in.nextLine();
-        } while (lugar.length() < 5 || lugar.length() > 50 || lugar.isEmpty() || lugar.isBlank()); //decidi poner como minimo 5 porque hay regiones que no llegan a 10 caracteres
+        } while (lugar.length() < 5 || lugar.length() > 50 || lugar.isBlank()); //decidi poner como minimo 5 porque hay regiones que no llegan a 10 caracteres
         this.lugar = lugar;
     }
-
     @Override
     public String toString() {
         return "Evento{" +

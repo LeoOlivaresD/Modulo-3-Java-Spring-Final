@@ -9,18 +9,15 @@ public class Administrativo extends Usuario {
     }
     //metodo contructor con parametros
 
-
     public Administrativo(String nombre, String apellido, Integer rut, String fechaNacimiento, String area, String experienciaPrevia) {
         super(nombre, apellido, rut, fechaNacimiento);
         this.area = area;
         this.experienciaPrevia = experienciaPrevia;
     }
-
     //generacion de metodo setter and getter
     public String getArea() {
         return area;
     }
-
     public void setArea(String area) {
         do {
             System.out.println("Indique su Area");
@@ -28,11 +25,9 @@ public class Administrativo extends Usuario {
         }while (area.length() < 5 || area.length() > 20);
         this.area = area;
     }
-
     public String getExperienciaPrevia() {
         return experienciaPrevia;
     }
-
     public void setExperienciaPrevia(String experienciaPrevia) {
         do {
             System.out.println("Indique su experiencia previa");
@@ -40,19 +35,14 @@ public class Administrativo extends Usuario {
             this.experienciaPrevia = experienciaPrevia;
         }while (experienciaPrevia.length() >100);
     }
-
     @Override
     public String toString() {
-        return "Administrativo{" +
+        return super.toString()+
+                "Administrativo{" +
                 "area='" + area + '\'' +
                 ", experienciaPrevia='" + experienciaPrevia + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", rut=" + rut +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                "} " + super.toString();
+                "} ";
     }
-
     @Override
     public void analizarUsuario() {
         super.analizarUsuario();

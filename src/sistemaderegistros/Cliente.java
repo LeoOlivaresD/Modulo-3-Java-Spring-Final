@@ -34,7 +34,7 @@ public class Cliente extends Usuario {
         do {
             System.out.println("Ingrese su telefono de contacto");
             telefono = in.nextLine();
-        }while (telefono.length() < 8 );
+        } while (telefono.length() < 8);
         this.telefono = telefono;
     }
 
@@ -46,7 +46,7 @@ public class Cliente extends Usuario {
         do {
             System.out.println("Ingrese su AFP");
             afp = in.nextLine();
-        }while (afp.length() < 3 || afp.length() > 30);
+        } while (afp.length() < 3 || afp.length() > 30);
         this.afp = afp;
     }
 
@@ -57,16 +57,16 @@ public class Cliente extends Usuario {
     public void setSistemaDeSalud(String sistemaDeSalud) {
         int validacion;
         do {
-        System.out.println("Seleccione su sistema de salud");
-        System.out.println("Ingrese el numero [1] para Fonasa");
-        System.out.println("Ingrese el numero [2] para Isapre");
-        sistemaDeSalud = in.nextLine();
-        if( sistemaDeSalud.equals("1") || sistemaDeSalud.equals("2")){
-            validacion = 1;
-        }else {
-            validacion=0;
-        }
-        }while (validacion == 0);
+            System.out.println("Seleccione su sistema de salud");
+            System.out.println("Ingrese el numero [1] para Fonasa");
+            System.out.println("Ingrese el numero [2] para Isapre");
+            sistemaDeSalud = in.nextLine();
+            if (sistemaDeSalud.equals("1") || sistemaDeSalud.equals("2")) {
+                validacion = 1;
+            } else {
+                validacion = 0;
+            }
+        } while (validacion == 0);
         this.sistemaDeSalud = sistemaDeSalud;
     }
 
@@ -78,7 +78,7 @@ public class Cliente extends Usuario {
         do {
             System.out.println("Ingrese su comuna");
             comuna = in.nextLine();
-        }while (comuna.length() > 50 || comuna.isEmpty());
+        } while (comuna.length() > 50 || comuna.isEmpty());
 
         this.comuna = comuna;
     }
@@ -92,7 +92,7 @@ public class Cliente extends Usuario {
         do {
             System.out.println("Ingrese su edad");
             edad = in.nextInt();
-        }while (edad <=0 || edad >150);
+        } while (edad <= 0 || edad > 150);
         this.edad = edad;
         in.nextLine();
     }
@@ -105,40 +105,37 @@ public class Cliente extends Usuario {
         do {
             System.out.println("Ingrese su direccion");
             direccion = in.nextLine();
-        }while (direccion.length() > 50 || direccion.isEmpty());
+        } while (direccion.length() > 50 || direccion.isEmpty());
         this.direccion = direccion;
     }
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return super.toString() +
+                "Cliente{" +
                 "telefono='" + telefono + '\'' +
                 ", afp='" + afp + '\'' +
                 ", sistemaDeSalud='" + sistemaDeSalud + '\'' +
                 ", comuna='" + comuna + '\'' +
                 ", edad=" + edad +
                 ", direccion='" + direccion + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", rut=" + rut +
-                ", fechaNacimiento='" + fechaNacimiento + '\'' +
-                "} " + super.toString();
+                "} ";
     }
 
     //Creacion metodo nombreCompleto
 
-    public String nombreCompleto(){
+    public String nombreCompleto() {
         String nombreApellido = getNombre() + " " + getApellido();
         return nombreApellido;
     }
 
     // Creacion del metodo obtenerSistemaSalud():
 
-    public String obtenerSistemaSalud(){
-        if(sistemaDeSalud == "1"){
+    public String obtenerSistemaSalud() {
+        if (sistemaDeSalud == "1") {
             sistemaDeSalud = "fonasa";
         } else if (sistemaDeSalud.equals("2")) {
-            sistemaDeSalud="isapre";
+            sistemaDeSalud = "isapre";
         }
         return sistemaDeSalud;
     }
